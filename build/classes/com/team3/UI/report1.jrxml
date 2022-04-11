@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="18e57111-d360-4a69-b6bb-bbe253babee2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PhieuDangKy.MaPhieuDK" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     KhachHang."HoTen" AS KhachHang_HoTen,
+     KhachHang."SDT" AS KhachHang_SDT,
+     KhachHang."CMND" AS KhachHang_CMND,
+     LoaiPhong."MaLoaiPhong" AS LoaiPhong_MaLoaiPhong,
+     LoaiPhong."TenLoaiPhong" AS LoaiPhong_TenLoaiPhong,
+     LoaiPhong."DonGia" AS LoaiPhong_DonGia,
+     KhachHang."MaKhachHang" AS KhachHang_MaKhachHang,
+     Phong."MaPhong" AS Phong_MaPhong,
+     Phong."TenPhong" AS Phong_TenPhong,
+     Phong."MaLoaiPhong" AS Phong_MaLoaiPhong,
+     PhieuDangKy."MaPhieuDK" AS PhieuDangKy_MaPhieuDK,
+     PhieuDangKy."MaKhachHang" AS PhieuDangKy_MaKhachHang,
+     PhieuDangKy."MaNhanVien" AS PhieuDangKy_MaNhanVien,
+     PhieuDangKy."MaPhong" AS PhieuDangKy_MaPhong,
+     HoaDon."MaHoaDon" AS HoaDon_MaHoaDon,
+     HoaDon."NgayThanhToan" AS HoaDon_NgayThanhToan,
+     HoaDon."MaKhuyenMai" AS HoaDon_MaKhuyenMai,
+     HoaDon."TongTien" AS HoaDon_TongTien,
+     HoaDon."MaPhieuDK" AS HoaDon_MaPhieuDK,
+     HoaDonChiTiet."MaHoaDon" AS HoaDonChiTiet_MaHoaDon,
+     HoaDonChiTiet."MaDichVu" AS HoaDonChiTiet_MaDichVu,
+     HoaDonChiTiet."Soluong" AS HoaDonChiTiet_Soluong,
+     DichVu."MaDichVu" AS DichVu_MaDichVu,
+     DichVu."Ten" AS DichVu_Ten,
+     DichVu."DonGia" AS DichVu_DonGia,
+     HoaDonTamTinh."MaHoaDonTamTinh" AS HoaDonTamTinh_MaHoaDonTamTinh,
+     HoaDonTamTinh."MaHoaDon" AS HoaDonTamTinh_MaHoaDon,
+     HoaDonTamTinh."TongTien" AS HoaDonTamTinh_TongTien
+FROM
+     "dbo"."LoaiPhong" LoaiPhong FULL OUTER JOIN "dbo"."Phong" Phong ON LoaiPhong."MaLoaiPhong" = Phong."MaLoaiPhong"
+     FULL OUTER JOIN "dbo"."PhieuDangKy" PhieuDangKy ON Phong."MaPhong" = PhieuDangKy."MaPhong"
+     FULL OUTER JOIN "dbo"."KhachHang" KhachHang ON PhieuDangKy."MaKhachHang" = KhachHang."MaKhachHang"
+     FULL OUTER JOIN "dbo"."HoaDon" HoaDon ON PhieuDangKy."MaPhieuDK" = HoaDon."MaPhieuDK"
+     FULL OUTER JOIN "dbo"."HoaDonChiTiet" HoaDonChiTiet ON HoaDon."MaHoaDon" = HoaDonChiTiet."MaHoaDon"
+     FULL OUTER JOIN "dbo"."HoaDonTamTinh" HoaDonTamTinh ON HoaDon."MaHoaDon" = HoaDonTamTinh."MaHoaDon"
+     FULL OUTER JOIN "dbo"."DichVu" DichVu ON HoaDonChiTiet."MaDichVu" = DichVu."MaDichVu"
+WHERE
+      HoaDon."MaHoaDon" = $P{PhieuDangKy.MaPhieuDK}]]>
+	</queryString>
+	<field name="KhachHang_HoTen" class="java.lang.String"/>
+	<field name="KhachHang_SDT" class="java.lang.String"/>
+	<field name="KhachHang_CMND" class="java.lang.String"/>
+	<field name="LoaiPhong_MaLoaiPhong" class="java.lang.Integer"/>
+	<field name="LoaiPhong_TenLoaiPhong" class="java.lang.String"/>
+	<field name="LoaiPhong_DonGia" class="java.lang.Double"/>
+	<field name="KhachHang_MaKhachHang" class="java.lang.Integer"/>
+	<field name="Phong_MaPhong" class="java.lang.Integer"/>
+	<field name="Phong_TenPhong" class="java.lang.String"/>
+	<field name="Phong_MaLoaiPhong" class="java.lang.Integer"/>
+	<field name="PhieuDangKy_MaPhieuDK" class="java.lang.Integer"/>
+	<field name="PhieuDangKy_MaKhachHang" class="java.lang.Integer"/>
+	<field name="PhieuDangKy_MaNhanVien" class="java.lang.String"/>
+	<field name="PhieuDangKy_MaPhong" class="java.lang.Integer"/>
+	<field name="HoaDon_MaHoaDon" class="java.lang.Integer"/>
+	<field name="HoaDon_NgayThanhToan" class="java.sql.Date"/>
+	<field name="HoaDon_MaKhuyenMai" class="java.lang.String"/>
+	<field name="HoaDon_TongTien" class="java.lang.Double"/>
+	<field name="HoaDon_MaPhieuDK" class="java.lang.Integer"/>
+	<field name="HoaDonChiTiet_MaHoaDon" class="java.lang.Integer"/>
+	<field name="HoaDonChiTiet_MaDichVu" class="java.lang.Integer"/>
+	<field name="HoaDonChiTiet_Soluong" class="java.lang.Integer"/>
+	<field name="DichVu_MaDichVu" class="java.lang.Integer"/>
+	<field name="DichVu_Ten" class="java.lang.String"/>
+	<field name="DichVu_DonGia" class="java.lang.Double"/>
+	<field name="HoaDonTamTinh_MaHoaDonTamTinh" class="java.lang.Integer"/>
+	<field name="HoaDonTamTinh_MaHoaDon" class="java.lang.Integer"/>
+	<field name="HoaDonTamTinh_TongTien" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="58" uuid="c7763653-7944-4ab3-8718-470717f5757d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="28" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[HOÁ ĐƠN THANH TOÁN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="233" splitType="Stretch">
+			<textField>
+				<reportElement x="427" y="0" width="128" height="20" backcolor="#0000FF" uuid="845e5449-fa29-4b42-b43f-8415a339f382"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HoaDon_MaHoaDon}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="327" y="0" width="100" height="20" uuid="992f259f-652d-419c-91c4-ddc585f948af"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mã hoá đơn:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="151" width="120" height="20" uuid="a351e9c0-226c-42ae-b89d-ac0d20af19a3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên khách hàng:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="151" width="168" height="20" forecolor="#FF0033" uuid="24a5b53c-7402-4eb8-92aa-fc96b68ed076"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KhachHang_HoTen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="171" width="100" height="20" uuid="0d964293-6986-4388-958c-09bf954f6e6f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CMND:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="171" width="168" height="20" forecolor="#FF0033" uuid="fb02d0a8-ef1e-43ec-a104-9c8d2b4e4eae"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KhachHang_CMND}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="191" width="100" height="20" uuid="f1e01045-b7b8-4cec-86e6-1f7035fcb007"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số điện thoại:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="191" width="168" height="20" forecolor="#FF0033" uuid="56db0a46-af6b-4604-abae-1ef7a3815452"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KhachHang_SDT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="173" height="22" uuid="bdf74d8e-a83f-4dfd-97eb-432d2d0bad38"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thông tin phòng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="110" width="216" height="22" uuid="ecdd703a-32d7-428a-9cce-d8ff65d4300b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thông tin khách hàng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="58" width="100" height="20" uuid="e9eb37f0-8193-454e-a950-fc168c69187a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Loại phòng:]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="100" y="78" width="168" height="20" uuid="82f55fb6-aa36-452c-8c8b-a88f87af9f83"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LoaiPhong_DonGia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="38" width="100" height="20" uuid="92e32e4f-c61e-43f3-ad57-3f668d0c5e3b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Phòng:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="78" width="100" height="20" uuid="ae064e27-9018-4ad3-97da-eda6ae7481d4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Giá tiền:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="38" width="168" height="20" uuid="06f5fc09-7aa6-40b7-b864-4a058528246e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Phong_TenPhong}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="58" width="168" height="20" uuid="6c7e005f-111e-4328-9c92-a67383734534"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LoaiPhong_TenLoaiPhong}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="327" y="22" width="100" height="20" uuid="463c18fc-3e1b-49b8-ba70-fc5b7f9dc300"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày lập:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="427" y="22" width="128" height="20" backcolor="#0000FF" uuid="dd5a838c-c7d6-4f63-984b-a9f7a1fefc40"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HoaDon_NgayThanhToan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="68" y="0" width="100" height="29" uuid="e6d6b256-bd3f-4f64-8748-30cac93593d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mã dịch vụ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="0" width="100" height="29" uuid="cdbc19c6-45f9-4f88-b12e-3228fe30377b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên dịch vụ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="268" y="0" width="100" height="29" uuid="b36d24cc-c46e-42b8-a63f-b0521a7223c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Đơn giá]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="368" y="0" width="100" height="29" uuid="e41ca029-137d-411d-9231-799c6f6eed59"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số lượng]]></text>
+			</staticText>
+			<line>
+				<reportElement x="51" y="29" width="438" height="1" uuid="4b52ea9c-611f-4652-b229-11c46f24dad0"/>
+			</line>
+			<line>
+				<reportElement x="51" y="40" width="438" height="1" uuid="a2925eef-04a8-4d57-8880-9b5c1159e7b6"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="68" y="0" width="100" height="20" uuid="3d13b7cc-1740-44d8-af96-f4ef2da7b56a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DichVu_MaDichVu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="168" y="0" width="100" height="20" uuid="c057c078-a9d3-4f01-a677-5e6721ff9592"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DichVu_Ten}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="268" y="0" width="100" height="20" uuid="f1a67b5c-1fc7-4a34-80cd-f64646f29d24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DichVu_DonGia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="0" width="100" height="20" uuid="a406a706-8235-4878-b3cd-6bf79de9400c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HoaDonChiTiet_Soluong}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="51" y="20" width="438" height="1" uuid="e4acb826-db60-4a57-8916-aea2fd62f7be"/>
+			</line>
+			<line>
+				<reportElement x="51" y="32" width="438" height="1" uuid="38bb510d-23d3-4d8d-ba73-36d490f884fb"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="278" y="9" width="125" height="28" uuid="1ce543d2-a235-4907-9a1a-eca3fb63f747"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tổng tiền:]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="403" y="9" width="152" height="28" uuid="61945144-9e8b-466a-9515-18b3955c15ab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HoaDonTamTinh_TongTien}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="58" uuid="0892ae50-5761-419b-926d-a629c9ee8418"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="28" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[THANK YOU]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="60" splitType="Stretch"/>
+	</summary>
+</jasperReport>
