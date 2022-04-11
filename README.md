@@ -1,2 +1,3 @@
-# quanlykhachsan
-Dự án 1 - Quản lý khách sạn - Team 2
+# Hotel-Management-Software
+
+Dự án - Quản lý khách sạn - Team 2
